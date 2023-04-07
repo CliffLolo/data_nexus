@@ -54,7 +54,7 @@ models:
         description:  ID for the subscription
 
       - name: customer_id
-        description: : ID of the member
+        description: ID of the member
 
       - name: cancel_at
         description: A date in the future at which the subscription will automatically get canceled
