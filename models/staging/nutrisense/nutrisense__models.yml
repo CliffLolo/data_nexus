@@ -1,0 +1,104 @@
+version: 2
+
+models:
+  - name: stg_nutrisense__active_members
+    columns:
+      - name: date
+        description: the 01/MM/YYYY when a member is active
+
+      - name: first_charge_at
+        description: the exact date of a successful charge
+
+      - name: customer_id
+        description: the ID of the member
+        tests:
+          - not_null
+
+      - name: cohort_date
+        description: 01/MM/YYYY format of date to define cohort membership
+
+      - name: cohort_plan_commitment
+        description: length of the commitment period of plan purchased
+
+  - name: stg_nutrisense__new_members
+    columns:
+      - name: customer_id
+        description: the ID of the member
+        tests:
+          - unique
+
+      - name: charge_id
+        description: the ID of the purchase made to enter cohort
+
+      - name: date
+        description: The date associated with the Charge ID
+
+      - name: cohort_date
+        description: 01/MM/YYYY format of date to define cohort membership
+
+      - name: cohort_tag
+        description: category for the plan purchased
+
+      - name: cohort_plan_commitment
+        description: length of the commitment period of plan purchased
+
+      - name: cohort_plan_commitment_ends
+        description:  the date on which the commitment period ends
+
+      - name: cohort_plan_id
+        description: the ID of the plan
+
+  - name: stg_nutrisense__subscriptions
+    columns:
+      - name: id
+        description:  ID for the subscription
+
+      - name: customer_id
+        description: : ID of the member
+
+      - name: cancel_at
+        description: A date in the future at which the subscription will automatically get canceled
+
+      - name: cancelled_at
+        description: If the subscription has been canceled, the date of that cancellation. If the subscription was canceled with cancel_at_period_end, canceled_at will reflect the time of the most recent update request, not the end of the subscription period when the subscription is automatically moved to a canceled state
+
+      - name: cancel_at_period_end
+        description:  If the subscription has been canceled with the at_period_end flag set to true, cancel_at_period_end on the subscription will be true. You can use this attribute to determine whether a subscription that has a status of active is scheduled to be canceled at the end of the current period
+
+      - name: current_period_end
+        description: End of the current period that the subscription has been invoiced for. At the end of this period, a new invoice will be created
+
+      - name: ended_at
+        description: If the subscription has ended, the date the subscription ended.
+
+      - name: status
+        description: i
+        tests:
+          - accepted_values:
+              values: ['incomplete', 'incomplete_expired', 'trialing', 'active', 'past_due', 'canceled', 'unpaid']
+              config:
+                severity: warn
+
+      - name: latest_invoice
+        description: Invoice ID for the most recent invoice
+
+      - name: plan_id
+        description: the ID of the plan
+
+      - name: interval
+        description: If the subscription has ended, the date the subscription ended.
+
+      - name: interval_count
+        description: If the subscription has ended, the date the subscription ended.
+
+      - name: commitment
+        description: If the subscription has ended, the date the subscription ended.
+
+      - name: commitment_ends
+        description: If the subscription has ended, the date the subscription ended.
+
+      - name: coupon_id
+        description: If the subscription has ended, the date the subscription ended.
+
+      - name: created_noisy
+        description: If the subscription has ended, the date the subscription ended.

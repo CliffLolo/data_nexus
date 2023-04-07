@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: nutrisense
+    database: nutrisense
+    schema: public
+    tables:
+      - name: active_members
+      - name: new_members
+      - name: subscriptions
