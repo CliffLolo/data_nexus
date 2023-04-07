@@ -16,6 +16,11 @@ renamed as (
         cohort_plan_commitment_ends,
         cohort_plan_id
     from source
+),
+
+final as (
+
+    select * from renamed
 )
 
-select * from source
+select * from final
