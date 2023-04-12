@@ -1,0 +1,1 @@
+{{ nulls_in_columns(ref('new_active_subscriptions'))}}
