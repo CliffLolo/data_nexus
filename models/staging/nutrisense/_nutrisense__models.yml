@@ -86,19 +86,17 @@ models:
         description: the ID of the plan
 
       - name: interval
-        description: If the subscription has ended, the date the subscription ended.
 
       - name: interval_count
         description: If the subscription has ended, the date the subscription ended.
 
       - name: commitment
-        description: If the subscription has ended, the date the subscription ended.
+        description: How long a member's subscription runs for
 
       - name: commitment_ends
-        description: If the subscription has ended, the date the subscription ended.
+        description: The date the member's subscription is supposed to end
 
       - name: coupon_id
-        description: If the subscription has ended, the date the subscription ended.
+        description: ID of the coupon
 
       - name: created_noisy
-        description: If the subscription has ended, the date the subscription ended.
